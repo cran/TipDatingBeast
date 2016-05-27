@@ -9,16 +9,26 @@
 	of the taxon desired for the leave-out-analysis. 
 }
 \usage{
-TaxonOut(name, takeOut)
+TaxonOut(name, lBound = 0, hBound = 1.0E100, takeOut, writeTrees = T)
 }
 \arguments{
     \item{name}{
         Name of the input file should be a .xml file generated using BEAUTi. Quote the name ("example").
 		Do not included .xml.
     }
+	\item{lBound}{
+		The uniform prior lower bound for the age of the missing taxa (default = 0)
+	}
+	\item{hBound}{
+		The uniform prior higher bound for the age of the missing taxa (default = 1.0E100)
+	}
 	\item{takeOut}{
         Taxon order for the take-one-out analysis.
     }
+	\item{writeTrees}{
+		Set to False (F) if you do not want the trees to be written when running the date-randomized
+		datasets in BEAST. To proceed the LOOCV, only the log files are needed (default = T).
+	}
 }
 \details{
     The function works only with a .xml file generated with BEAUti
@@ -34,9 +44,9 @@ TaxonOut(name, takeOut)
 }
 \examples{
 \dontrun{
-    # using the example files "Flu.xml" found in example folder.
+    # using the example files "Flu_BEAST_1.8.xml" found in example folder.
 	# example using the 5th taxon ("CHICKEN_HONGKONG_915_1997")
-	TaxonOut("Flu", 5)
+	TaxonOut("Flu_BEAST_1.8", takeOut = 5)
 	# produce a single input files without the corresponding taxon ("CHICKEN_HONGKONG_915_1997")
 }
 }

@@ -29,9 +29,9 @@ ListTaxa(name)
 }
 \examples{
 \dontrun{
-    # using one of the files included as example in BEAST distribution ("Flu.xml")
+    # using the example files "Flu-BEAST-1.8.xml" found in example folder.
 	# example file can be found in the example folder
-	ListTaxa("Flu")
+	ListTaxa("Flu-BEAST-1.8")
 	# list all 21 taxa in the file in the console 
 }
 }

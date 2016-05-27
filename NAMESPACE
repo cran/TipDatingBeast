@@ -1,4 +1,9 @@
 exportPattern("^[[:alpha:]]+")
 import(mclust)
+import(TeachingDemos)
+import(DescTools)
 import(utils)
 import(stats)
+importFrom("grDevices", "dev.off", "pdf")
+importFrom("graphics", "abline", "arrows", "axis", "legend", "mtext",
+           "par", "plot", "points", "segments", "text")

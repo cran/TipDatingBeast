@@ -1,9 +1,9 @@
 \name{clusters.Flu.csv}
 \docType{data}
 \alias{clusters.Flu.csv}
-\title{Cluster structure example input/output file for Beast 1}
+\title{Cluster structure example input file for the RandomCluster function}
 \description{
-  This is an example of a cluster structure input/output file for package function RandomCluster.
+  This is an example of a cluster structure input file for package function RandomCluster.
   }
 \usage{clusters.Flu.csv}
 \format{CSV file}

@@ -12,17 +12,17 @@
 \tabular{ll}{
 Package: \tab TipDatingBeast\cr
 Type: \tab Package\cr
-Version: \tab 1.6\cr
-Date: \tab 2015-07-28\cr
+Version: \tab 1.0.1\cr
+Date: \tab 2016-04-12\cr
 License: \tab GPL (>= 2)\cr
 }
-The RandomDates function randomize tip dates (BEAST v1).
-The RandomDates2 function randomize tip dates (BEAST v2).
-The RandomCluster function ramdomize tip dates between group of tips (BEAST v1).
-The RandomCluster2 function ramdomize tip dates between group of tips (BEAST v2).
+The RandomDates function randomize tip dates.
+The RandomCluster function ramdomize tip dates between group of tips.
 The TaxaOut function generates input files for leave-one-analysis.
 The TaxonOut function generates a single input file by removing the date of a particular taxon.
 The ListTaxa function displays the names and order of the taxa in the xml file.
+The PlotDRT function plots BEAST output of ramdomize tip dates analysis.
+The PlotLOOCV function plots BEAST output of leave-one-analysis.
 }
 \author{
 	Rieux A & Khatchikian, C.
