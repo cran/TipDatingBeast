@@ -121,16 +121,16 @@ LOOCV_result <- all(fail == 0)
 
 # Print result over the plot
 if (LOOCV_result == TRUE) {
-  mtext("Pass!!! Age estimation for all taxa inside the expected 95% HDP",
+  mtext("Pass!!! Age estimation for all taxa inside the expected 95% HPD",
         side = 3, line = 1, col = "red")
 } else {mtext(paste("Age estimation for taxon/taxa",
                     paste(fail, collapse = ", "), 
-                    "is/are not overlapping with expected 95% HDP"), side = 3,
+                    "is/are not overlapping with expected 95% HPD"), side = 3,
 					line = 2, col = "red");
   mtext("Attention !!! check LOOCV report file", side = 3, line = 1, 
         col = "red");
   write.table (colnames[fail], row.names = fail, sep = ",",
-  col.names = "Taxon not overlapping with estimated 95% HDP (position, name)",
+  col.names = "Taxon not overlapping with estimated 95% HPD (position, name)",
   paste0(name, "_LOOCV_report.txt"))
 }
 
@@ -157,11 +157,11 @@ LOOCV_result <- all(fail == 0)
 
 # Print result over the plot
 if (LOOCV_result == TRUE) {
-  mtext("Pass!!! Age estimation for all taxa inside the expected 95% HDP",
+  mtext("Pass!!! Age estimation for all taxa inside the expected 95% HPD",
         side = 3, line = 1, col = "red")
 } else {mtext(paste("Age estimation for taxon/taxa",
                     paste(fail, collapse = ", "), 
-                    "is/are not overlapping with expected 95% HDP"), side = 3,
+                    "is/are not overlapping with expected 95% HPD"), side = 3,
 					line = 2, col = "red");
   mtext("Attention !!! check LOOCV report file", side = 3, line = 1, 
         col = "red")
