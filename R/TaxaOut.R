@@ -38,8 +38,8 @@ if (ver == 1) {
       \t\t<treeModel idref=\"treeModel\"/>\n\t</tmrcaStatistic>")
     add34 <- grep(pattern = "</operators>", x = newFile, value = F)
     newFile [add34] <- paste0(
-      "\t\t<randomWalkOperator windowSize=\"1.0\" weight=\"1\">
-      \t\t\t<parameter idref=\"age(",taxon,")\"/>\n\t\t</randomWalkOperator>
+      "\t\t<scaleOperator scaleFactor=\"0.9\" weight=\"1\">
+      \t\t\t<parameter idref=\"age(",taxon,")\"/>\n\t\t</scaleOperator>
       \t</operators>")
     add5 <- grep(pattern = "<prior id=\"prior\">", x = newFile, value = F)
     newFile [add5] <- paste0(
