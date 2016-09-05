@@ -24,7 +24,7 @@ RandomCluster <- function(name, reps = 20, loadCluster = T, writeTrees = T) {
   if (loadCluster == F){
     dates <- as.numeric(regmatches(matchLines[], 
                                    gregexpr('\\(?[0-9,.]+', matchLines[])))
-    d_clust <- Mclust(as.matrix(dates[]), G = min:tips, modelNames = "E")
+    d_clust <- Mclust(as.matrix(as.numeric(dates[])), G = min:tips, modelNames = "E")
     n <- dim(d_clust$z)[2]
     if (n == 1) {stop(
       "One cluster found, input clusters manually or use RandomDates")}
@@ -149,7 +149,7 @@ if (ver == 2) {
   
   if (loadCluster == F){
     min <- 1
-    d_clust <- Mclust(as.matrix(dateValues), G = min:numberDates)
+    d_clust <- Mclust(as.matrix(as.numeric(dateValues)), G = min:numberDates)
     n <- dim(d_clust$z)[2]
     if (n == 1) {stop(
       "Single cluster found, input clusters manually or use RandomDates")}

@@ -19,6 +19,13 @@ TaxonOut <- function(name, lBound = 0.0, hBound = 1.0E100, takeOut,
     
   if (length(taxa) == 0) {stop(
     "No date info found, check BEAST input files")}
+  
+  if (is.numeric(takeOut) == F) {
+    valueTakeOut <- match(takeOut, taxa)
+    if (is.na (valueTakeOut)) {stop("Taxon name not found, check spelling")}
+    takeOut <- valueTakeOut
+  }
+
   if (numberTaxa < takeOut) {stop("Error in taxon number")}
   matchFileName <- grep(pattern = "fileName", x = inFile, value = T)
   matchFileNamePosition <- grep(pattern = "fileName", x = inFile, value = F)
@@ -103,8 +110,8 @@ if (ver == 2) {
   line <- grep(pattern = "traitname=\"date|traitname=\'date", x = inFile)
   line <- line + 1
   if (length(line) == 0) {stop(
-    "No date info found, check BEAST input file")}  
-  if (numberTaxa < takeOut) {stop("Error in taxon number")} 
+    "No date info found, check BEAST input file")}
+  
   datePositions = c()
   repeat {
     if (length(grep("value=", inFile[line])) > 0) line <- line + 1
@@ -121,6 +128,14 @@ if (ver == 2) {
   dateHap <- dateHap[1: numberDates]
   dateValues <- date[c(F, T)]
   lastLine <- length(grep("<taxa", dateValues))
+  
+  if (is.numeric(takeOut) == F) {
+    valueTakeOut <- match(takeOut, dateHap)
+    if (is.na (valueTakeOut)) {stop("Taxon name not found, check spelling")}
+    takeOut <- valueTakeOut
+  }
+  
+  if (numberTaxa < takeOut) {stop("Error in taxon number")} 
   
   if (lastLine == 1){
     lastDate <- tail(dateValues, 2)
