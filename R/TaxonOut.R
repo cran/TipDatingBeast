@@ -60,7 +60,7 @@ TaxonOut <- function(name, lBound = 0.0, hBound = 1.0E100, takeOut,
   add6 <- grep(pattern = "<log id=\"fileLog\"", x = newFile, value = F)
   keep6 <- newFile[add6 + 1]
   newFile [add6 + 1] <- paste0(
-      "\n\t\t\t<parameter idref=\"age(",taxa,")\"/>\n",keep6)
+      "\n\t\t\t<parameter idref=\"age(",taxon,")\"/>\n",keep6)
   
   log = paste0("\\.log")
   matchLog <- grep(pattern = log, x = newFile, value = T)

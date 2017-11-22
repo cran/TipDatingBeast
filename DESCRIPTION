@@ -3,18 +3,17 @@ Package: TipDatingBeast
 Type: Package
 Title: Using Tip Dates with Phylogenetic Trees in BEAST (Software for
         Phylogenetic Analysis)
-Version: 1.0-5
-Date: 2016-09-03
+Version: 1.0-6
+Date: 2017-11-21
 Author: Adrien Rieux, Camilo Khatchikian
 Maintainer: Camilo Khatchikian <ckhatchikian@gmail.com>
 Depends: R (>= 3.1.2)
 Imports: mclust, TeachingDemos, DescTools, utils, stats
 Description: Assist performing tip-dating of phylogenetic trees with BEAST.          
 License: GPL (>= 2)
-URL: http://www.r-project.org
-BugReports: TipDatingBeast@gmail.com
-Packaged: 2016-09-04 01:24:02 UTC; Camilo
+URL: https://www.r-project.org
+Packaged: 2017-11-22 03:29:08 UTC; ckhatchikian
 Repository: CRAN
-Date/Publication: 2016-09-05 20:19:34
+Date/Publication: 2017-11-22 04:11:36 UTC
 Archs: i386, x64
 NeedsCompilation: no

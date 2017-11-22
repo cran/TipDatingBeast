@@ -1,11 +1,11 @@
-\name{clusters.Flu.csv}
+\name{Flu_BEAST_18.clusters.Flu.csv}
 \docType{data}
-\alias{clusters.Flu.csv}
+\alias{Flu_BEAST_18.clusters.Flu.csv}
 \title{Cluster structure example input file for the RandomCluster function}
 \description{
   This is an example of a cluster structure input file for package function RandomCluster.
   }
-\usage{clusters.Flu.csv}
+\usage{Flu_BEAST_18.clusters.Flu.csv}
 \format{CSV file}
 \source{derived from BEAST v1.7 distribution package}
 \references{

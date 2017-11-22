@@ -12,8 +12,8 @@
 \tabular{ll}{
 Package: \tab TipDatingBeast\cr
 Type: \tab Package\cr
-Version: \tab 1.0.1\cr
-Date: \tab 2016-04-12\cr
+Version: \tab 1.0.6\cr
+Date: \tab 2017-11-20\cr
 License: \tab GPL (>= 2)\cr
 }
 The RandomDates function randomize tip dates.
@@ -29,7 +29,8 @@ The PlotLOOCV function plots BEAST output of leave-one-analysis.
 Maintainer: C. Khatchikian <ckhatchikian@gmail.com>
 }
 \references{
-	Rieux A & Khatchikian, C. Unpublished.
+	Rieux, A. and Khatchikian, C.E., 2017. TipDatingBeast: An R package to assist the implementation of 
+	phylogenetic tip-dating tests using BEAST. Molecular ecology resources, 17(4), pp.608-613.
 	Drummond AJ, Suchard MA, Xie D & Rambaut A (2012) Bayesian phylogenetics with BEAUti and the BEAST 1.7.
 	Molecular Biology And Evolution 29: 1969-1973.
 }
