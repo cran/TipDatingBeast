@@ -7,14 +7,14 @@
 	and the shuffling procedure randomizes dates among the clusters but not within 
 	(see manual for more details on this procedure). There are two distinct ways to group the samples into clusters.
 	The first one is through the upload of a csv.file containing the names of the samples (as given in the XML) 
-	and a cluster number. Any positive integrer (i.e., positive number) can be used to identified cluster;
+	and a cluster number. Any positive integer (i.e., positive number) can be used to identified cluster;
 	if a "0" is given to any sample, it would be excluded from the procedure.
-	The file containing the classification should be labelled: clusters."name".cvs.
+	The file containing the classification should be labeled: clusters."name".cvs.
 	An example for such a file in the case of the Influenza dataset can be found distributed with the package. 
 
 	In a second approach, a model-based clustering classification is automatically performed using the mclust library.
 	In this case, the option loadCluster should be set to FALSE (loadCluster = F).
-	If this option is closen, the new classification is written in a csv file that is labelled: clusters."name".cvs.
+	If this option is chosen, the new classification is written in a csv file that is labeled: clusters."name".cvs.
 	}
 \usage{
 RandomCluster(name, reps = 20, loadCluster = T, writeTrees = T)
@@ -38,8 +38,7 @@ RandomCluster(name, reps = 20, loadCluster = T, writeTrees = T)
 		containing the cluster structure is produced.
 	}
 	\item{writeTrees}{
-		Set to False (F) if you do not want the trees to be written when running the date-randomized
-		datasets in BEAST. To make the DRT, only the log files are needed (default = T).
+		This argument has no function in the current version (default = T).
 	}
 }
 \details{
@@ -60,7 +59,7 @@ RandomCluster(name, reps = 20, loadCluster = T, writeTrees = T)
 \examples{
 \dontrun{
     # using the example files "Flu_BEAST_1.8.xml" and "clusters.Flu.csv" found in example folder
-	RandomCluster("Flu_BEAST_1.8", reps = 20, loadCluster = T, writeTrees = F)
+	RandomCluster("Flu_BEAST_1.8", reps = 20, loadCluster = T)
 	# produce 20 replicate input files (.xml) in working directory
 }
 }

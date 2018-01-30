@@ -4,7 +4,7 @@
 \title{single Taxon out input file for leave-one-out analysis in BEAST}
 \description{
     This function produces a single input file for leave-one-out analyses using BEAST version 1 software.
-	In this analysis, the date of the choosen taxon is estimated using the remaining taxa dates.
+	In this analysis, the date of the chosen taxon is estimated using the remaining taxa dates.
 	The function "ListTaxa" is intended to help identifying the order (parameter "takeOut")
 	of the taxon desired for the leave-out-analysis. 
 }
@@ -26,8 +26,7 @@ TaxonOut(name, lBound = 0, hBound = 1.0E100, takeOut, writeTrees = T)
         Taxon order for the take-one-out analysis.
     }
 	\item{writeTrees}{
-		Set to False (F) if you do not want the trees to be written when running the date-randomized
-		datasets in BEAST. To proceed the LOOCV, only the log files are needed (default = T).
+		This argument has no function in the current version (default = T).
 	}
 }
 \details{

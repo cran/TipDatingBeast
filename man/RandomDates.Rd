@@ -20,8 +20,7 @@ RandomDates(name, reps = 20, writeTrees = T)
 		as the value of reps (default = 20).
 	}
 	\item{writeTrees}{
-		Set to False (F) if you do not want the trees to be written when running the date-randomized
-		datasets in BEAST. To make the DRT, only the log files are needed (default = T).
+		This argument has no function in the current version (default = T).
 		}
 }
 \details{
@@ -41,7 +40,7 @@ RandomDates(name, reps = 20, writeTrees = T)
 \dontrun{
     # using the example files "Flu-BEAST-1.8.xml" found in example folder.
 	# example file can be found in the example folder
-	RandomDates("Flu-BEAST-1.8", reps = 20, writeTrees = F)
+	RandomDates("Flu-BEAST-1.8", reps = 20)
 	# produce 20 replicate input files (.xml) in working directory
 }
 }

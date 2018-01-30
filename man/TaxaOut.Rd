@@ -24,8 +24,7 @@ TaxaOut(name, lBound = 0, hBound = 1.0E100, writeTrees = T)
 		The uniform prior higher bound for the age of the missing taxa (default = 1.0E100)
 	}
 	\item{writeTrees}{
-		Set to False (F) if you do not want the trees to be written when running the date-randomized
-		datasets in BEAST. To proceed the LOOCV, only the log files are needed (default = T).
+		This argument has no function in the current version (default = T).
 		}
 }
 \details{

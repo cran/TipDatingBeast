@@ -12,8 +12,8 @@
 \tabular{ll}{
 Package: \tab TipDatingBeast\cr
 Type: \tab Package\cr
-Version: \tab 1.0.6\cr
-Date: \tab 2017-11-20\cr
+Version: \tab 1.0.7\cr
+Date: \tab 2018-01-29\cr
 License: \tab GPL (>= 2)\cr
 }
 The RandomDates function randomize tip dates.

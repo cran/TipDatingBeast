@@ -54,12 +54,7 @@ RandomDates <- function(name, reps = 20, writeTrees = T) {
       newFile [matchOpsPosition] <- gsub(ops, opsRep, matchOps)}
     
     if (writeTrees == F) {
-      logA <- grep(pattern = "<logTree id=", x = newFile, value = T)
-      logAn <- grep(pattern = "<logTree id=", x = newFile, value = F)
-      newFile [logAn] <- paste0("\t\t<!-- \n", logA)
-      logB <- grep(pattern = "</logTree>", x = newFile, value = T)
-      logBn <- grep(pattern = "</logTree>", x = newFile, value = F)
-      newFile [logBn] <- paste0(logB, "\n", " \t\t -->")
+      stop("writeTrees function is not longer available")
       }
         
     out <- paste0(name, ".Rep", i, ".xml")
@@ -140,21 +135,9 @@ if (ver == 2) {
       newFile [matchCsvPosition] <- gsub(csv, csvRep, matchCsv)}
 
     if (writeTrees == F) {
-      logA <- grep(pattern = "\\.trees", x = newFile, value = T)
-      logAn <- grep(pattern = "\\.trees", x = newFile, value = F)
-      newFile [logAn] <- paste0("\t<!-- \n ", logA)
-      ctr <- 0
-      repeat {
-        ctr <- ctr + 1
-        ctr2 <- 0
-        ctr2 <- logAn + ctr
-        temp <- grep(pattern = "</logger>", newFile[ctr2], value = F)
-        temp <- length(temp)
-        if (temp != 0) break
-        if (ctr == 100) stop("Error, check files, no tree block found")
-      }
-      newFile [ctr2] <- paste0("\t</logger>", "\n", "\t-->")
+      stop("writeTrees function is not longer available")
     }
+    
     out <- paste0(name, ".Rep", i, ".xml")
     cat (newFile, file = out, sep = "\n")
   }
