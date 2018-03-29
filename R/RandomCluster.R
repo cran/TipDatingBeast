@@ -6,8 +6,8 @@ RandomCluster <- function(name, reps = 20, loadCluster = T, writeTrees = T) {
   
   inFileName <- paste0(name, ".xml")
   inFile <- readLines(inFileName)
-  ver2 <- grep(pattern = "version=\"2.0\"", x = inFile, value = F)  
-  ver1 <- grep(pattern = "version=\"1.0\"", x = inFile, value = F)  
+  ver2 <- grep(pattern = "version=\"2.", x = inFile, value = F)  
+  ver1 <- grep(pattern = "version=\"1.", x = inFile, value = F) 
   ver <- length(ver1) + length(ver2)
   
   if (ver == 1) {
