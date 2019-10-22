@@ -1,9 +1,10 @@
 PlotDRT <- function (name, reps, burnin = 0.1) {
   
-  options (warn = -1)
-  
- # library(TeachingDemos)
- # library(DescTools)
+ #library(TeachingDemos)
+ #library(DescTools) 
+ 
+  opar <-par(no.readonly=TRUE)
+  on.exit(par(opar))
 
   ## Read the log
   readFileName <- paste0(name, ".log")
@@ -131,7 +132,7 @@ PlotDRT <- function (name, reps, burnin = 0.1) {
   abline(h = log10(stats[1,4]), col = "lightcoral", lty = 5,lwd = 1.5)
   abline(h = log10(stats[1,5]), col = "lightcoral", lty = 5,lwd = 1.5)
   
-  legend("top", c ("Real", "randomized"),col = c("red", "black"), lty = 1, 
+  legend("top", c ("Real", "Randomized"),col = c("red", "black"), lty = 1, 
          pch = 16, cex = 1, horiz = TRUE, bty = "n")
   DRT_result <- all(is.overlap == 0)
   overlapping_with_true_dataset <- which(is.overlap != 0)
@@ -220,7 +221,7 @@ PlotDRT <- function (name, reps, burnin = 0.1) {
   abline(h = log10(stats[1,4]), col = "lightcoral", lty = 5,lwd = 1.5)
   abline(h = log10(stats[1,5]), col = "lightcoral", lty = 5,lwd = 1.5)
   
-  legend("top", c ("Real", "randomized"),col = c("red", "black"), lty = 1, 
+  legend("top", c ("Real", "Randomized"),col = c("red", "black"), lty = 1, 
          pch = 16, cex = 1, horiz = TRUE, bty = "n")
   
   DRT_result <- all(is.overlap == 0)

@@ -1,9 +1,9 @@
-exportPattern("^[[:alpha:]]+")
-import(mclust)
+exportPattern('^[[:alpha:]]+')
 import(TeachingDemos)
-import(DescTools)
 import(utils)
 import(stats)
-importFrom("grDevices", "dev.off", "pdf")
-importFrom("graphics", "abline", "arrows", "axis", "legend", "mtext",
-           "par", "plot", "points", "segments", "text")
+import(DescTools)
+importFrom(mclust, Mclust)
+importFrom('grDevices', 'dev.off', 'pdf')
+importFrom('graphics', 'abline', 'arrows', 'axis', 'legend', 'mtext',
+           'par', 'plot', 'points', 'segments', 'text')

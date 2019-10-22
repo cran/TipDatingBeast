@@ -1,14 +1,18 @@
 ListTaxa <- function(name) {
 
-options (warn = -1)
+  opar <-par(no.readonly=TRUE)
+  on.exit(par(opar))
   
-  inFileName <- paste0(name, ".xml")
+  inFileName <- paste0(name, '.xml')
   inFile <- readLines(inFileName)
-  ver2 <- grep(pattern = "version=\"2.", x = inFile, value = F)  
-  ver1 <- grep(pattern = "version=\"1.", x = inFile, value = F)
-  ver <- length(ver1) + length(ver2)
+  versionLine <- readLines(inFileName,n=1)
+  ver <- grepl(pattern = 'version=\"1.0', x = versionLine)
+  ver2 <- grepl(pattern = 'version=\"2.', x = versionLine)  
+  ver1 = F
+  if (ver == T & ver2 ==  F) {ver1 = T}
   
-  if (ver == 1) {
+  if (ver1 == T) {
+
     endTaxaLine <- grep(pattern = "</taxa>", x = inFile, value = F)
     taxaLine <- grep(pattern = "<taxon id=", x = inFile, value = T)
     taxaLinePosition <- grep(pattern = "<taxon id=", x = inFile, value = F)
@@ -19,24 +23,28 @@ options (warn = -1)
       "No date info found, check Beast input file")}  
     matchFileName <- grep(pattern = "fileName", x = inFile, value = T)
     matchFileNamePosition <- grep(pattern = "fileName", x = inFile, value = F)
+    
+    
   # Loop
   for (i in 1 : numberTaxa) { 
     cat ("Taxon", i, "is", taxa[i], "\n")
   }
 }
 
-if (ver == 2) {
+  if (ver2 == T) {
+    
+    linearDates=F
+    
+    numberTaxa <- length(grep('taxon=', inFile))
 
-  numberTaxa <- length(grep("taxon=", inFile))
-  line <- grep(pattern = "traitname=\"date|traitname=\'date", x = inFile)
-  line <- line + 1
-  if (length(line) == 0) {stop(
-    "No date info found, check Beast input file")} 
+    line <- grep("sequence id=", inFile)
+    line <- line[1]
+
   datePositions = c()
+  
   repeat {
-    if (length(grep("value=", inFile[line])) > 0) line <- line + 1
-    if (length(grep("alignment", inFile[line])) > 0) break
-    if (length(grep("=", inFile[line])) > 0) {
+    if (length(grep("</data>", inFile[line])) > 0) break
+    if (length(grep("taxon=", inFile[line])) > 0) {
       datePositions <- c(datePositions, line)}
     line <- line + 1
   }
@@ -44,19 +52,15 @@ if (ver == 2) {
   numberDates <- length(datePositions)
   dateLines <- inFile[datePositions]
   dateLines <- trimws(dateLines)
-  date <- unlist(strsplit(dateLines, "="))
+  date <- unlist(strsplit(dateLines, " totalcount"))
   dateHap <- date[c(T, F)]
+  dateHap <- unlist(strsplit(dateHap, "taxon="))  
+  dateHap <- dateHap[c(F, T)] 
+  dateHap <- gsub("\"","",dateHap)
+  
   dateHap <- dateHap[1: numberDates]
   dateValues <- date[c(F, T)]
   lastLine <- length(grep("<taxa", dateValues))
-  
-  if (lastLine == 1){
-    lastDate <- tail(dateValues, 2)
-    lastDate <- unlist(strsplit(lastDate, " "))
-    lastDate <- head(lastDate, 1)
-    dateValues <- head(dateValues, numberTaxa-1)
-    dateValues <- c(dateValues, lastDate)
-  }
   
   dateValues <- gsub(",$", "", dateValues)
   
@@ -71,5 +75,5 @@ if (ver == 2) {
   }
 }
 
-if (ver != 1 & ver != 2) {stop("Error, check BEAST input file")}
+  if (ver1 == F & ver2 == F) {stop("Error, check BEAST input file -version not recognized")}
 }
